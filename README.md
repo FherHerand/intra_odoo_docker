@@ -1,4 +1,4 @@
-Recursos obtenidos de [Git Odoo Docker](https://github.com/odoo/docker) para las imágenes oficiales de [Docker Odoo](https://hub.docker.com/_/odoo/)
+Recursos obtenidos de [Git Odoo Docker](https://github.com/odoo/docker) para las imágenes oficiales de [Docker Hub Odoo](https://hub.docker.com/_/odoo/)
 
 ## Versiones
 - 12.0
