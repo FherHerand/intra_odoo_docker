@@ -1,5 +1,10 @@
 Recursos obtenidos de [Git Odoo Docker](https://github.com/odoo/docker) para las imágenes oficiales de [Docker Odoo](https://hub.docker.com/_/odoo/)
 
+## Versiones
+- 12.0
+- 13.0
+- 14.0
+
 ## Requisitos recomendados
 - Docker (>=20.10.2)
 - docker-compose (>=1.27.4)
