@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  web:
+    image: odoo:12.0
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    volumes:
+      - type: volume
+        source: odoo-web-data
+        target: /var/lib/odoo
+      #- type: bind
+        #source: ./config
+        #target: /etc/odoo
+      - type: bind
+        source: ./addons
+        target: /mnt/extra-addons
+  db:
+    image: postgres:10
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data/pgdata
+volumes:
+  odoo-web-data:
+  odoo-db-data:
