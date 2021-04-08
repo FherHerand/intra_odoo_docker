@@ -9,19 +9,25 @@ Recursos obtenidos de [Git Odoo Docker](https://github.com/odoo/docker) para las
 - Docker (>=20.10.2)
 - docker-compose (>=1.27.4)
 
-## Build de Dockerfile
+## Build de odoo
+### Build con Dockerfile
 Moverse a la ubicación del archivo Dockerfile y ejecutar
 ```
 docker build -t odoo:x.x .
 ```
 ```
-docker run  odoo:x.x
+docker run odoo:x.x
 ```
 
-## Build con docker-compose
+### Build con docker-compose
 Moverse a la ubicación del archivo docker-compose.yml y ejecutar
 ```
 docker-compose up -d
+```
+
+## Crear un módulo con odoo docker
+```
+docker exec -it <nombre_contenedor> /usr/bin/odoo scaffold <nombre_modulo> /mnt/extra-addons/
 ```
 
 ## Ejecutar comandos dentro del contenedor
