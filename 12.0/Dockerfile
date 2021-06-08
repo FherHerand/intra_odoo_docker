@@ -93,6 +93,11 @@ ENV ODOO_RC /etc/odoo/odoo.conf
 
 COPY wait-for-psql.py /usr/local/bin/wait-for-psql.py
 
+RUN apt-get update
+RUN apt-get install sudo
+#RUN adduser --disabled-password --gecos '' odoo
+RUN adduser odoo sudo
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 # Set default user when running the container
 USER odoo
 
