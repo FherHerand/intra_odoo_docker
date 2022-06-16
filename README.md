@@ -48,3 +48,13 @@ docker exec -it <nombre_contenedor> bash
 ...
 exit
 ```
+
+## Ejecutar comandos dentro del contenedor como ROOT
+```
+docker exec -u root <nombre_contenedor> <comando>
+```
+
+Por ejemplo
+```
+docker exec -u root 80aa2d3be335 pip install XlsxWriter==2.0.0
+```
