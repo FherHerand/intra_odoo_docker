@@ -25,6 +25,11 @@ Moverse a la ubicación del archivo docker-compose.yml y ejecutar
 docker-compose up -d
 ```
 
+O para ver los logs en la consola, ejecutar
+```
+docker-compose up
+```
+
 ## Crear un módulo con odoo docker
 ```
 docker exec -it <nombre_contenedor> /usr/bin/odoo scaffold <nombre_modulo> /mnt/extra-addons/
@@ -47,6 +52,22 @@ docker exec -it <nombre_contenedor> /bin/bash
 docker exec -it <nombre_contenedor> bash
 ...
 exit
+```
+
+## Definir timezone de postgresql
+Dentro del contenedor de postgres
+```
+psql -U odoo -d <base de datos de odoo>
+```
+
+```
+\l+
+\dt+
+SHOW TIMEZONE;
+SELECT * FROM pg_timezone_names WHERE name LIKE '%Guatemala';
+
+SET TIMEZONE='America/Guatemala';
+SHOW TIMEZONE;
 ```
 
 ## Ejecutar comandos dentro del contenedor como ROOT
