@@ -32,24 +32,24 @@ docker-compose up
 
 ## Crear un módulo con odoo docker
 ```
-docker exec -it <nombre_contenedor> /usr/bin/odoo scaffold <nombre_modulo> /mnt/extra-addons/
+docker exec -it <nombre_contenedor_web> /usr/bin/odoo scaffold <nombre_modulo> /mnt/extra-addons/
 ```
 
 ## Reiniciar odoo con odoo docker
 ```
-docker exec -it <nombre_contenedor> /etc/init.d/odoo restart
+docker exec -it -u root <nombre_contenedor_web> /etc/init.d/odoo restart
 ```
 
 ## Ver log odoo con odoo docker
 ```
-docker exec -it <nombre_contenedor> tail -100 /var/log/odoo/odoo-server.log
+docker exec -it <nombre_contenedor_web> tail -100 /var/log/odoo/odoo-server.log
 ```
 
 ## Ejecutar comandos dentro del contenedor
 ```
-docker exec -it <nombre_contenedor> /bin/bash
+docker exec -it <nombre_contenedor_web> /bin/bash
 # o si bash está en el PATH
-docker exec -it <nombre_contenedor> bash
+docker exec -it <nombre_contenedor_web> bash
 ...
 exit
 ```
@@ -72,10 +72,12 @@ SHOW TIMEZONE;
 
 ## Ejecutar comandos dentro del contenedor como ROOT
 ```
-docker exec -u root <nombre_contenedor> <comando>
+docker exec -u root <nombre_contenedor_web> <comando>
 ```
 
 Por ejemplo
 ```
-docker exec -u root 80aa2d3be335 pip install XlsxWriter==2.0.0
+docker exec -u root 80a pip install XlsxWriter==2.0.0
+docker exec -u root 80a /etc/init.d/odoo restart
+docker exec -it 80a /bin/bash
 ```
