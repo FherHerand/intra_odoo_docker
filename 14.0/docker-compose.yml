@@ -1,6 +1,7 @@
 version: '3.1'
 services:
   web:
+    container_name: test-odoo-web
     image: odoo:14.0
     depends_on:
       - db
@@ -15,6 +16,7 @@ services:
     secrets:
       - postgresql_password
   db:
+    container_name: test-odoo-db
     image: postgres:13
     environment:
       - POSTGRES_DB=postgres
@@ -27,7 +29,9 @@ services:
       - postgresql_password
 volumes:
   odoo-web-data:
+    name: test-odoo-web-data
   odoo-db-data:
+    name: test-odoo-db-data
 
 secrets:
   postgresql_password:
